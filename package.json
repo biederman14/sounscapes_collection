@@ -1,0 +1,17 @@
+{
+  "name": "soundscapes_collection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "start": "parcel src/main/resources/static/js/index.js",
+	"build": "parcel build src/main/resources/static/js/index.js --out-dir src/main/resources/static/dist",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  }
+}
