@@ -1,8 +1,6 @@
 package org.wecancodeit.soundscapes_collection.models;
 
 import java.util.Collection;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -29,7 +27,7 @@ public class Album {
 	public Album() {
 	}
 
-	public Album(String albumTitle, String albumImage, String recordLabel, Artist artist, List<Song> songs) {
+	public Album(String albumTitle, String albumImage, String recordLabel, Artist artist, Collection<Song> songs) {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
 		this.recordLabel = recordLabel;

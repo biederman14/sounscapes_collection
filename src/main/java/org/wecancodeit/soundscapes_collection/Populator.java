@@ -1,13 +1,18 @@
 package org.wecancodeit.soundscapes_collection;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.soundscapes_collection.models.Album;
 import org.wecancodeit.soundscapes_collection.models.Artist;
+import org.wecancodeit.soundscapes_collection.models.Song;
 import org.wecancodeit.soundscapes_collection.repository.AlbumRepository;
 import org.wecancodeit.soundscapes_collection.repository.ArtistRepository;
+import org.wecancodeit.soundscapes_collection.repository.SongRepository;
 
 @Service
 public class Populator implements CommandLineRunner {
@@ -18,14 +23,18 @@ public class Populator implements CommandLineRunner {
 	@Resource
 	AlbumRepository albumRepo;
 
+	@Resource
+	SongRepository songRepo;
+
 	private Artist createArtist(String artistName, String artistImage, String artistHometown) {
 
 		Artist a = new Artist(artistName, artistImage, artistHometown);
 		return artistRepo.save(a);
 	}
 
-	private Album createAlbum(String albumTitle, String albumImage, String recordLabel) {
-		Album b = new Album(albumTitle, albumImage, recordLabel);
+	private Album createAlbum(String albumTitle, String albumImage, String recordLabel, Artist artist,
+			Collection<Song>... songs) {
+		Album b = new Album(albumTitle, albumImage, recordLabel, artist, songs);
 		return albumRepo.save(b);
 	}
 
