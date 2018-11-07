@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.wecancodeit.soundscapes_collection.models.Album;
 import org.wecancodeit.soundscapes_collection.models.Artist;
 
 @RunWith(SpringRunner.class)
@@ -16,6 +17,9 @@ import org.wecancodeit.soundscapes_collection.models.Artist;
 public class RepositoryTest {
 	@Resource
 	ArtistRepository artistRepo;
+
+	@Resource
+	AlbumRepository albumRepo;
 
 	@Test
 	public void shouldAddArtistToRepo() {
@@ -35,4 +39,11 @@ public class RepositoryTest {
 		assertThat(result, hasItems(beck, wacco));
 	}
 
+	@Test
+	public void shouldAddAlbumToRepo() {
+		Album wham = new Album();
+		albumRepo.save(wham);
+		Iterable<Album> result = albumRepo.findAll();
+		assertThat(result, hasItems(wham));
+	}
 }
