@@ -1,8 +1,11 @@
 package org.wecancodeit.soundscapes_collection.models;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Artist {
@@ -13,6 +16,8 @@ public class Artist {
 	private String artistName;
 	private String artistImage;
 	private String artistHometown;
+	@OneToMany(mappedBy = "album")
+	private Collection<Album> albums;
 
 	public Artist() {
 	}
@@ -37,6 +42,10 @@ public class Artist {
 
 	public String getArtistHometown() {
 		return artistHometown;
+	}
+
+	public Collection<Album> getAlbums() {
+		return albums;
 	}
 
 }
