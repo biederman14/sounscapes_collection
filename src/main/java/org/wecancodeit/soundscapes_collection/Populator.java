@@ -36,9 +36,9 @@ public class Populator implements CommandLineRunner {
 		Artist milesDavis = createArtist("Miles Davis", "/miles.jpg", "Alton, IL");
 		Artist chicago = createArtist("Chicago", "/chicago.jpg", "Chicago, IL");
 
-		Album invisibleTouch = createAlbum("Invisible Touch", "/iTouch.jpg", "Atlantic Records");
-		Album noJacketRequired = createAlbum("No Jacket Required", "/noJacket.jpg", "Virgin Records");
-		Album kindOfBlue = createAlbum("Kind of Blue", "/kOBlue.jpg", "Columbia Records");
+		Album invisibleTouch = createAlbum("Invisible Touch", "/itouch.jpg", "Atlantic Records");
+		Album noJacketRequired = createAlbum("No Jacket Required", "/noJacket.png", "Virgin Records");
+		Album kindOfBlue = createAlbum("Kind of Blue", "/kindofBlue.jpg", "Columbia Records");
 		Album sorcerer = createAlbum("Sorcerer", "/sorcerer.jpg", "Columbia Records");
 		Album chicago17 = createAlbum("17", "/17.jpg", "Warner Bros.");
 		Album chicago19 = createAlbum("19", "/19.jpg", "Reprise");
