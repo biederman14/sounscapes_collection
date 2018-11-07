@@ -13,16 +13,14 @@ public class Artist {
 	private String artistName;
 	private String artistImage;
 	private String artistHometown;
-	private String artistRecordLabel;
 
 	public Artist() {
 	}
 
-	public Artist(String artistName, String artistImage, String artistHometown, String artistRecordLabel) {
+	public Artist(String artistName, String artistImage, String artistHometown) {
 		this.artistName = artistName;
 		this.artistImage = artistImage;
 		this.artistHometown = artistHometown;
-		this.artistRecordLabel = artistRecordLabel;
 	}
 
 	public Long getId() {
@@ -39,10 +37,6 @@ public class Artist {
 
 	public String getArtistHometown() {
 		return artistHometown;
-	}
-
-	public String getArtistRecordLabel() {
-		return artistRecordLabel;
 	}
 
 }
