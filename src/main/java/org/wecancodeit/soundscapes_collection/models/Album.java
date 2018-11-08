@@ -27,12 +27,11 @@ public class Album {
 	public Album() {
 	}
 
-	public Album(String albumTitle, String albumImage, String recordLabel, Artist artist, Collection<Song> songs) {
+	public Album(String albumTitle, String albumImage, String recordLabel, Artist artist) {
 		this.albumTitle = albumTitle;
 		this.albumImage = albumImage;
 		this.recordLabel = recordLabel;
 		this.artist = artist;
-		this.songs = songs;
 	}
 
 	public Artist getArtist() {
