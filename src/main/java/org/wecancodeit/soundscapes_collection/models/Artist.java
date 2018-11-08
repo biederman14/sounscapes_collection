@@ -16,7 +16,8 @@ public class Artist {
 	private String artistName;
 	private String artistImage;
 	private String artistHometown;
-	@OneToMany(mappedBy = "album")
+
+	@OneToMany
 	private Collection<Album> albums;
 
 	public Artist() {
