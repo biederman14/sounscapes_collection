@@ -15,6 +15,7 @@ public class Song {
 	private Long id;
 	private String title;
 	private String duration;
+
 	@JsonIgnore
 	@ManyToOne
 	private Album albums;

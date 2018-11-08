@@ -1,6 +1,7 @@
 package org.wecancodeit.soundscapes_collection.models;
 
 import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +13,6 @@ public class Album {
 
 	@Id
 	@GeneratedValue
-
 	private Long id;
 	private String albumTitle;
 	private String albumImage;
@@ -21,7 +21,7 @@ public class Album {
 	@ManyToOne
 	private Artist artist;
 
-	@OneToMany(mappedBy = "album")
+	@OneToMany
 	private Collection<Song> songs;
 
 	public Album() {
