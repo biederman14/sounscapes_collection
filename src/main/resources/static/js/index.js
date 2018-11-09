@@ -1,5 +1,3 @@
-
-const {HomeWrapper} = require('./home\Wrapper')
 const {header} = require('.header')
 
 
@@ -27,6 +25,7 @@ const {header} = require('.header')
 
 
 //Artists
+function APIRequest(getArtists) {
 const getArtists = () => {
 
 	fetch('/api/artists')
@@ -45,16 +44,17 @@ const getArtists = () => {
 	})}
 
 document.querySelector('getArtists').addEventListener('click', getArtists);
-
-const artist = {
-	artistName: 
-	artistImage:
-	artistHometown:
 }
 
-module.export = {
-	getArtists()
-	}
+// const artist = {
+// 	artistName: 
+// 	artistImage:
+// 	artistHometown:
+// }
+
+// module.export = {
+// 	getArtists()
+// 	}
 
 //Albums
 
