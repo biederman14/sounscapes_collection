@@ -1,8 +1,5 @@
 package org.wecancodeit.soundscapes_collection;
 
-import java.util.Collection;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;

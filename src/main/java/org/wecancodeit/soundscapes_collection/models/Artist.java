@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Artist {
 
@@ -17,7 +19,8 @@ public class Artist {
 	private String artistImage;
 	private String artistHometown;
 
-	@OneToMany
+	@JsonIgnore
+	@OneToMany(mappedBy = "artist")
 	private Collection<Album> albums;
 
 	public Artist() {
