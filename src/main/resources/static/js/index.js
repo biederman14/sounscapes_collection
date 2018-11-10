@@ -1,5 +1,4 @@
-const {header} = require('.header')
-
+const {artistName} = require('.artist')
 
 //Imported Components
 
@@ -33,13 +32,7 @@ const getArtists = () => {
 	.then((data)=>{
 		let output='<button class ="btn">Artist<button>';
 		data.forEach(function(artist){
-			output += `
-			<ul class="artistList">
-				<li class="artistItem">Artist Name: ${artist.artistName}</li>
-				<li class="artistImage">Artist Image: ${artist.artistImage}</li>
-				<li class="artistHometown">Artist Home Town: ${artist.artistHometown}</li>
-			</ul>
-			`
+			output += {artistName}
 		})
 	})}
 

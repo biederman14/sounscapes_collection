@@ -1,4 +1,3 @@
-
 const {getArtist} = require ('../js/artist')
 
 describe('should access artist.js file', () =>{
