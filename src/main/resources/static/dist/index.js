@@ -4,7 +4,11 @@ function e(e){return document.createElement(e)}module.exports={makeElement:e};
 var e=require("./helpers"),r=e.makeElement,a=function(){var e=r("div");return e.classList.add("wrapper"),e}();module.exports={HomeWrapper:a};
 },{"./helpers":"lTk1"}],"cJDT":[function(require,module,exports) {
 function t(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}function n(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function e(t,e,r){return e&&n(t.prototype,e),r&&n(t,r),t}var r=function(){function n(){t(this,n)}return e(n,[{key:"render",value:function(){return"\n\t\t\t<header> \n\t\t\t\t<h1> Home</h1>\n\t\t\t\t\t<nav>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Artist, Albums, </li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</nav>\n\t\t\t</header>\n\t\t"}}]),n}();module.exports={Header:r};
+},{}],"epB2":[function(require,module,exports) {
+var t=function(){function t(){}return t.prototype={render:function(){return"\n\t\t\t\t<main>\n\t\t\t\t\t<h2>Sounscape Subheading</h2>\n\t\t\t\t</main>\n\t\t\t"}},t}();module.exports={Main:t};
+},{}],"v9Q8":[function(require,module,exports) {
+var t=function(){function t(t){this.copyright=t}return t.prototype={render:function(){return"\n\t\t\t\t<footer>\n\t\t\t\t\t<small>".concat(this.copyright,"</small>\n\t\t\t\t</footer\n\t\t")}},t}();module.exports={Footer:t};
 },{}],"Focm":[function(require,module,exports) {
-var e=document.querySelector("#app"),r=require("/homeWrapper"),p=r.HomeWrapper,a=require("/header"),d=a.Header,n=new d;p.innerHTML+=n.render(),e.appendChild(p);
-},{"/homeWrapper":"BPM9","/header":"cJDT"}]},{},["Focm"], null)
+var e=document.querySelector("#app"),r=require("/homeWrapper"),n=r.HomeWrapper,i=require("/header"),o=i.Header,a=require("/main"),d=a.Main,p=require("/footer"),t=p.Footer,u=new o,H=new d,q=new t("Big Honkin Footer");n.innerHTML+=u.render(),n.innerHTML+=H.render(),n.innterHTML,q.render(),e.appendChild(n);
+},{"/homeWrapper":"BPM9","/header":"cJDT","/main":"epB2","/footer":"v9Q8"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map
