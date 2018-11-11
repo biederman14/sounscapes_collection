@@ -8,6 +8,7 @@ describe('should access artist.js file', () =>{
 
 	test('getArtist is defined', () => {
 		expect(getArtist).toBeDefined()
+		
 	})
 })
 
