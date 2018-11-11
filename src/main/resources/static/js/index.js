@@ -1,8 +1,9 @@
 
 //Imported Components
 const entry = document.querySelector('#app')
-const {header} = require('header')
-const {HomeWrapper} = require('/homeWrapper')
+const { HomeWrapper } = require('/homeWrapper')
+const { Header } = require('/header')
+
 
 //App Components
 
@@ -14,7 +15,7 @@ const {HomeWrapper} = require('/homeWrapper')
 
 
 //Build App
-
+HomeWrapper.innerHTML += header.render()
 
 
 
