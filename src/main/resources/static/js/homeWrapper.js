@@ -1,5 +1,7 @@
+const {makeElement} = require('./helpers')
+
 const HomeWrapper = (function() {
-	const homeWrapper = document.createElement('div')
+	const homeWrapper = makeElement('div')
 	homeWrapper.classList.add('wrapper')
 
 	return homeWrapper

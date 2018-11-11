@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "start": "parcel src/main/resources/static/js/index.js",
-  "build": "parcel build src/main/resources/static/js/index.js --out-dir src/main/resources/static/dist",
+    "start": "parcel src/main/resources/static/js/index.js",
+    "build": "parcel build src/main/resources/static/js/index.js --out-dir src/main/resources/static/dist",
     "test": "jest"
   },
   "keywords": [],
@@ -15,7 +15,9 @@
     "jest": "^23.6.0",
     "parcel-bundler": "^1.10.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "header": "^0.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/biederman14/sounscapes_collection.git"
