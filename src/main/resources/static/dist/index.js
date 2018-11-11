@@ -3,8 +3,8 @@ function e(e){return document.createElement(e)}module.exports={makeElement:e};
 },{}],"BPM9":[function(require,module,exports) {
 var e=require("./helpers"),r=e.makeElement,a=function(){var e=r("div");return e.classList.add("wrapper"),e}();module.exports={HomeWrapper:a};
 },{"./helpers":"lTk1"}],"cJDT":[function(require,module,exports) {
-function t(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}function n(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function e(t,e,r){return e&&n(t.prototype,e),r&&n(t,r),t}var r=function(){function n(){t(this,n)}return e(n,[{key:"render",value:function(){return"\n\t\t\t<header> \n\t\t\t\t<h1> Home</h1>\n\t\t\t\t\t<nav>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<\tli>Artist, Albums, </li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</nav>\n\t\t\t</header>\n\t\t"}}]),n}();module.exports={Header:r};
+function t(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}function n(t,n){for(var e=0;e<n.length;e++){var r=n[e];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function e(t,e,r){return e&&n(t.prototype,e),r&&n(t,r),t}var r=function(){function n(){t(this,n)}return e(n,[{key:"render",value:function(){return"\n\t\t\t<header> \n\t\t\t\t<h1> Home</h1>\n\t\t\t\t\t<nav>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Artist, Albums, </li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</nav>\n\t\t\t</header>\n\t\t"}}]),n}();module.exports={Header:r};
 },{}],"Focm":[function(require,module,exports) {
-var e=document.querySelector("#app"),r=require("/homeWrapper"),a=r.HomeWrapper,p=require("/header"),d=p.Header;a.innerHTML+=header.render();
+var e=document.querySelector("#app"),r=require("/homeWrapper"),p=r.HomeWrapper,a=require("/header"),d=a.Header,n=new d;p.innerHTML+=n.render(),e.appendChild(p);
 },{"/homeWrapper":"BPM9","/header":"cJDT"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map

@@ -6,6 +6,7 @@ const { Header } = require('/header')
 
 
 //App Components
+const header = new Header()
 
 
 
@@ -19,8 +20,8 @@ HomeWrapper.innerHTML += header.render()
 
 
 
-//Boostrap Application
-
+//Bootstrap Application
+entry.appendChild(HomeWrapper)
 
 
 
