@@ -3,10 +3,14 @@
 const entry = document.querySelector('#app')
 const { HomeWrapper } = require('/homeWrapper')
 const { Header } = require('/header')
+const { Main } = require('/main')
+const { Footer } = require('/footer')
 
 
 //App Components
 const header = new Header()
+const main = new Main()
+const footer = new Footer('Big Honkin Footer')
 
 
 
@@ -17,7 +21,8 @@ const header = new Header()
 
 //Build App
 HomeWrapper.innerHTML += header.render()
-
+HomeWrapper.innerHTML += main.render()
+HomeWrapper.innterHTML +- footer.render()
 
 
 //Bootstrap Application
