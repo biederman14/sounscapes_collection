@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
   "start": "parcel src/main/resources/static/js/index.js",
   "build": "parcel build src/main/resources/static/js/index.js --out-dir src/main/resources/static/dist",
-  "scripts": {
     "test": "jest"
   },
   "keywords": [],
