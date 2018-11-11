@@ -1,5 +1,6 @@
 package org.wecancodeit.soundscapes_collection.Controller;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wecancodeit.soundscapes_collection.models.Album;
 import org.wecancodeit.soundscapes_collection.models.Artist;
 import org.wecancodeit.soundscapes_collection.models.Song;
+import org.wecancodeit.soundscapes_collection.models.Tag;
 import org.wecancodeit.soundscapes_collection.repository.AlbumRepository;
 import org.wecancodeit.soundscapes_collection.repository.ArtistRepository;
 import org.wecancodeit.soundscapes_collection.repository.SongRepository;
+import org.wecancodeit.soundscapes_collection.repository.TagRepository;
 
 @RestController
 public class ApiController {
@@ -25,6 +28,9 @@ public class ApiController {
 
 	@Autowired
 	SongRepository songRepo;
+
+	@Autowired
+	TagRepository tagRepo;
 
 	@GetMapping("/api/artists")
 	public Iterable<Artist> getArtists() {
@@ -72,5 +78,11 @@ public class ApiController {
 			return "redirect:/index?invalid=true";
 		}
 		return "index";
+	}
+
+	@GetMapping("/api/tags")
+	public Iterable<Tag> getTagName() {
+		// I don't know if the /tags is the right path but we can change it.
+		return tagRepo.findAll();
 	}
 }
