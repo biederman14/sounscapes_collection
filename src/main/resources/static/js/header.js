@@ -7,7 +7,7 @@ class Header {
 				<h1> Home</h1>
 					<nav>
 						<ul>
-							<	li>Artist, Albums, </li>
+							<li>Artist, Albums, </li>
 						</ul>
 					</nav>
 			</header>
