@@ -15,98 +15,46 @@
     </header>
 
    <noscript><p>You have a JS error</p></noscript>
-	<button id="button1">Get Artists</button>
-  <button id="button2">Get Albums</button>
-  <button id="button3">Get Songs</button>
+	<button id="button1" onclick= "myFunction()">Get Artists</button>
+  <button id="button2"  onclick="myFunction()">Get Albums</button>
+  <button id="button3" onclick="myFunction()">Get Songs</button>
   <br><br>
   <h1>Artist</h1>  
-  <div id="artist"></div>
+  <div id="artist" class = "myDiv"></div>
+  <form id="addArtists">
+      <div class="form-group">
+        <input type="text" id="artistName" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="artistHometown" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input id = "addPost" type="submit" class="btn btn-secondary" value="Submit">
+    </form>
   <h1>Albums</h1>  
-  <div id="albums"></div>
+  <div id="albums" class = "myDiv"></div>
+  <form id="addAlbums">
+      <div class="form-group">
+        <input type="text" id="albumTitle" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="recordLabel" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input id = "addPost2" type="submit" class="btn btn-secondary" value="Submit">
+    </form>
   <h1>Classics</h1>  
-  <div id="songs"></div>
+  <div id="songs" class = "myDiv"></div>
+  <form id="addSongs">
+      <div class="form-group">
+        <input type="text" id="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="duration" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input id = "addPost1" type="submit" class="btn btn-secondary" value="Submit">
+    </form>
      
    </div>
-	  <script>
-    document.getElementById('button1').addEventListener('click', loadArtist);
-    document.getElementById('button2').addEventListener('click', loadAlbum);
-    document.getElementById('button3').addEventListener('click', loadSong);
-
-
-    
-
-    function loadArtist(){
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'api/artists', true);
-
-      xhr.onload = function(){
-        if(this.status == 200){
-          var user = JSON.parse(this.responseText);
-          
-          var output = '';
-          
-          for(var i in user){
-            output += '<ul>' +
-              '<li>Artist Hometown: '+user[i].artistHometown+'</li>' +
-              '<li>Name: '+user[i].artistName+'</li>' +
-              '</ul>';
-          }
-
-          document.getElementById('artist').innerHTML = output;
-        }
-      }
-
-      xhr.send();
-    }
-    function loadAlbum(){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'api/albums', true);
-
-        xhr.onload = function(){
-          if(this.status == 200){
-            var user = JSON.parse(this.responseText);
-            
-            var output = '';
-            
-            for(var i in user){
-              output += '<ul>' +
-                '<li>Album Title: '+user[i].albumTitle+'</li>' +
-                '<li>Album Record Label: '+user[i].recordLabel+'</li>' +
-                '</ul>';
-            }
-
-            document.getElementById('albums').innerHTML = output;
-          }
-        }
-
-        xhr.send();
-      }
-    function loadSong(){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'api/songs', true);
-
-        xhr.onload = function(){
-          if(this.status == 200){
-            var user = JSON.parse(this.responseText);
-            
-            var output = '';
-            
-            for(var i in user){
-              output += '<ul>' +
-                '<li>Song Title: '+user[i].title+'</li>' +
-                '<li>Song Duration: '+user[i].duration+'</li>' +
-                '<li>Album Title: '+user[i].album.albumTitle+'</li>' +
-                '</ul>';
-                console.log(user)
-            }
-
-            document.getElementById('songs').innerHTML = output;
-          }
-        }
-
-        xhr.send();
-      }
-  </script>
+ <script src="/js/app.js"></script> 
 </body>
 
 </html>
