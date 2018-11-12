@@ -24,7 +24,7 @@ public class Album {
 	@JsonIgnore
 	@ManyToOne
 	private Artist artist;
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "albums")
 	private Collection<Song> songs = new HashSet<Song>();
 

@@ -15,41 +15,25 @@
     </header>
 
    <noscript><p>You have a JS error</p></noscript>
-	<button id="button1">Get User</button>
-  <button id="button2">Get Users</button>
+	<button id="button1">Get Artists</button>
+  <button id="button2">Get Albums</button>
+  <button id="button3">Get Songs</button>
   <br><br>
-  <h1>User</h1>  
+  <h1>Artist</h1>  
   <div id="artist"></div>
-  <h1>Users</h1>  
-  <div id="artists"></div>
+  <h1>Albums</h1>  
+  <div id="albums"></div>
+  <h1>Classics</h1>  
+  <div id="songs"></div>
      
    </div>
 	  <script>
-    document.getElementById('button1').addEventListener('click', loadUser);
-    document.getElementById('button2').addEventListener('click', loadArtist);
+    document.getElementById('button1').addEventListener('click', loadArtist);
+    document.getElementById('button2').addEventListener('click', loadAlbum);
+    document.getElementById('button3').addEventListener('click', loadSong);
 
-    function loadUser(){
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'api/artists', true);
 
-      xhr.onload = function(){
-        if(this.status == 200){
-          var user = JSON.parse(this.responseText);
-          
-          var output = '';
-
-          output += '<ul>' +
-            '<li>ID: '+user.artistHometown+'</li>' +
-            '<li>Name: '+user.artistName+'</li>' +
-            '</ul>';
-            console.log(user)
-
-          document.getElementById('artist').innerHTML = output;
-        }
-      }
-
-      xhr.send();
-    }
+    
 
     function loadArtist(){
       var xhr = new XMLHttpRequest();
@@ -63,17 +47,65 @@
           
           for(var i in user){
             output += '<ul>' +
-              '<li>ID: '+user[i].artistHometown+'</li>' +
+              '<li>Artist Hometown: '+user[i].artistHometown+'</li>' +
               '<li>Name: '+user[i].artistName+'</li>' +
               '</ul>';
           }
 
-          document.getElementById('artists').innerHTML = output;
+          document.getElementById('artist').innerHTML = output;
         }
       }
 
       xhr.send();
     }
+    function loadAlbum(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/albums', true);
+
+        xhr.onload = function(){
+          if(this.status == 200){
+            var user = JSON.parse(this.responseText);
+            
+            var output = '';
+            
+            for(var i in user){
+              output += '<ul>' +
+                '<li>Album Title: '+user[i].albumTitle+'</li>' +
+                '<li>Album Record Label: '+user[i].recordLabel+'</li>' +
+                '</ul>';
+            }
+
+            document.getElementById('albums').innerHTML = output;
+          }
+        }
+
+        xhr.send();
+      }
+    function loadSong(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/songs', true);
+
+        xhr.onload = function(){
+          if(this.status == 200){
+            var user = JSON.parse(this.responseText);
+            
+            var output = '';
+            
+            for(var i in user){
+              output += '<ul>' +
+                '<li>Song Title: '+user[i].title+'</li>' +
+                '<li>Song Duration: '+user[i].duration+'</li>' +
+                '<li>Album Title: '+user[i].album.albumTitle+'</li>' +
+                '</ul>';
+                console.log(user)
+            }
+
+            document.getElementById('songs').innerHTML = output;
+          }
+        }
+
+        xhr.send();
+      }
   </script>
 </body>
 
