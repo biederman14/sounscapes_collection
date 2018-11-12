@@ -21,16 +21,44 @@
   <br><br>
   <h1>Artist</h1>  
   <div id="artist"></div>
+  <form id="addArtists">
+      <div class="form-group">
+        <input type="text" id="artistName" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="artistHometown" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input id = "addPost" type="submit" class="btn btn-secondary" value="Submit">
+    </form>
   <h1>Albums</h1>  
   <div id="albums"></div>
+  <form id="addAlbums">
+      <div class="form-group">
+        <input type="text" id="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="body" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
   <h1>Classics</h1>  
   <div id="songs"></div>
+  <form id="addSongs">
+      <div class="form-group">
+        <input type="text" id="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <textarea id="body" class="form-control" placeholder="Body"></textarea>
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
      
    </div>
 	  <script>
     document.getElementById('button1').addEventListener('click', loadArtist);
     document.getElementById('button2').addEventListener('click', loadAlbum);
     document.getElementById('button3').addEventListener('click', loadSong);
+    document.getElementById('addPost').addEventListener('submit', addArtist);
 
 
     
@@ -105,6 +133,23 @@
         }
 
         xhr.send();
+      }
+    function addArtist(){
+       
+
+        let title = document.getElementById('artistName').value;
+        let body = document.getElementById('artistHometown').value;
+
+        fetch('artists/add', {
+          method:'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-type':'application/json'
+          },
+          body:JSON.stringify({artistName:artistName, artistHometown:artistHometown})
+        })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
       }
   </script>
 </body>

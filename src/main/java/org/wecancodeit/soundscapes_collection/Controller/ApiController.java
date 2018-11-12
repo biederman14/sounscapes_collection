@@ -1,12 +1,15 @@
 package org.wecancodeit.soundscapes_collection.Controller;
 
-import java.util.Collection;
 import java.util.Optional;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.wecancodeit.soundscapes_collection.models.Album;
 import org.wecancodeit.soundscapes_collection.models.Artist;
@@ -85,4 +88,42 @@ public class ApiController {
 		// I don't know if the /tags is the right path but we can change it.
 		return tagRepo.findAll();
 	}
+	@PostMapping("/artists/add")
+	public Iterable<Artist> addArtist(@RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String name = json.getString("name");
+		String imageUrl = json.getString("imageUrl");
+		String artistHometown = json.getString("artistHometown");
+		artistRepo.save(new Artist( name, imageUrl,artistHometown));
+
+		return artistRepo.findAll();
+	}
+	
+	@PostMapping("/albums/add")
+	public Iterable<Album> addAlbum(@RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		
+		String title = json.getString("title");
+		
+		String recordLabel = json.getString("recordLabel");
+		String imageUrl = json.getString("imageUrl");
+		Artist artist = artistRepo.findById(Long.parseLong(json.getString("artist"))).get();
+		albumRepo.save(new Album( title, imageUrl, recordLabel, artist));
+
+		return albumRepo.findAll();
+	}
+	
+	@PostMapping("/songs/add")
+	public Iterable<Song> addSong(@RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		
+		String title = json.getString("title");
+		
+		String duration = json.getString("duration");
+		Album album = albumRepo.findById(Long.parseLong(json.getString("album"))).get();
+		songRepo.save(new Song( title, duration, album));
+
+		return songRepo.findAll();
+	}
+
 }
